@@ -10,7 +10,7 @@ variables:
 - name: ResourceGroup
   value: 'rg-sandor'
 - name: ImageTemplateName
-  value: 'dev11135'
+  value: 'dev1113'
 
 steps:
   - task: AzureCLI@2
