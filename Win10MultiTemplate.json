@@ -27,7 +27,7 @@
         "identity": {
           "type": "UserAssigned",
           "userAssignedIdentities": {
-            "be570511-7624-4d1c-93ec-a647ffd0c3e8": {}
+            "/subscriptions/de288b74-b39c-4186-9b7d-c7e257d63426/be570511-7624-4d1c-93ec-a647ffd0c3e8": {}
           }
         },
         "properties": {
