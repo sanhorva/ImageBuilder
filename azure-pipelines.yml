@@ -1,0 +1,65 @@
+trigger:
+  - none
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+- name: Location
+  value: 'West Europe'
+- name: ResourceGroup
+  value: 'rg-sandor'
+- name: ImageTemplateName
+  value: 'dev1113'
+
+steps:
+  - task: AzureCLI@2
+    displayName: "Copy Install Script"
+    inputs:
+      azureSubscription: 'ZEISSgroup-DI05-ASM-Learning'
+      scriptType: 'bash'
+      scriptLocation: 'inlineScript'
+      inlineScript: |
+        az storage blob upload \
+             --account-name sanhorvastg1113\
+             --container-name sanhorvacnr1113 \
+             --name Install-Applications.ps1 \
+             --file Install-Applications.ps1 \
+  - task: AzureResourceManagerTemplateDeployment@3
+    displayName: "Deploy Template"
+    continueOnError: true
+    inputs:
+      deploymentScope: 'Resource Group'
+      azureResourceManagerConnection: 'ZEISSgroup-DI05-ASM-Learning'
+      subscriptionId: 'de288b74-b39c-4186-9b7d-c7e257d63426'
+      action: 'Create Or Update Resource Group'
+      resourceGroupName: '$(ResourceGroup)'
+      location: '$(Location)'
+      templateLocation: 'Linked artifact'
+      csmFile: 'Win10MultiTemplate.json'
+      csmParametersFile: 'Win10MultiTemplate.parameters.json'
+      deploymentMode: 'Incremental'
+
+  - task: AzurePowerShell@5
+    displayName: "Install Az.ImageBuilder"
+    inputs:
+      azureSubscription: 'ZEISSgroup-DI05-ASM-Learning'
+      ScriptType: 'InlineScript'
+      Inline: 'Install-Module -name Az.ImageBuilder -AllowPrerelease -Force -Scope CurrentUser'
+      azurePowerShellVersion: 'LatestVersion'
+
+  - task: AzurePowerShell@5
+    displayName: "Build Image"
+    inputs:
+      azureSubscription: 'ZEISSgroup-DI05-ASM-Learning'
+      ScriptType: 'InlineScript'
+      Inline: 'Start-AzImageBuilderTemplate -ResourceGroupName $(ResourceGroup) -Name $(ImageTemplateName)'
+      azurePowerShellVersion: 'LatestVersion'
+
+  - task: AzurePowerShell@5
+    displayName: "Remove Template"
+    inputs:
+      azureSubscription: 'ZEISSgroup-DI05-ASM-Learning'
+      ScriptType: 'InlineScript'
+      Inline: 'Remove-AzImageBuilderTemplate -ImageTemplateName $(ImageTemplateName) -ResourceGroupName $(ResourceGroup)'
+      azurePowerShellVersion: 'LatestVersion'
