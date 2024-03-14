@@ -72,7 +72,7 @@
           "distribute": [
             {
               "type": "SharedImage",
-              "galleryImageId": "/subscriptions/de288b74-b39c-4186-9b7d-c7e257d63426/resourceGroups/rg-sandor/providers/Microsoft.Compute/galleries/shcg",
+              "galleryImageId": "/subscriptions/de288b74-b39c-4186-9b7d-c7e257d63426/resourceGroups/rg-sandor/providers/Microsoft.Compute/galleries/shcg/images/shcg",
               "runOutputName": "win10Client",
               "artifactTags": {
                 "environment": "Lab",
