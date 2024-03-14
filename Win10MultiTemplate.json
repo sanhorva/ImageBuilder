@@ -27,7 +27,7 @@
         "identity": {
           "type": "UserAssigned",
           "userAssignedIdentities": {
-            "/subscriptions/de288b74-b39c-4186-9b7d-c7e257d63426/resourceGroups/g-sandor/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sh-identity": {}
+            "/subscriptions/de288b74-b39c-4186-9b7d-c7e257d63426/resourceGroups/rg-sandor/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sh-identity": {}
           }
         },
         "properties": {
