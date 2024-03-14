@@ -77,7 +77,10 @@
               "artifactTags": {
                 "environment": "Lab",
                 "Owner": "IT"
-              }
+              },
+              "targetRegions": [
+                "West Europe"
+              ]
             }
           ]
         }
