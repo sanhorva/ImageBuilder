@@ -27,7 +27,7 @@
         "identity": {
           "type": "UserAssigned",
           "userAssignedIdentities": {
-            "<UserAssignedID>": {}
+            "be570511-7624-4d1c-93ec-a647ffd0c3e8": {}
           }
         },
         "properties": {
@@ -58,7 +58,7 @@
               "type": "PowerShell",
               "name": "GetArchive",
               "inline": [
-                "c:\\temp\\azcopy.exe copy '<ArchiveSource>' c:\\temp\\software.zip",
+                "c:\\temp\\azcopy.exe copy 'https://sanhorvastg1113.blob.core.windows.net/sanhorvacnr1113/Install-Applications.ps1' c:\\temp\\software.zip",
                 "Expand-Archive 'c:\\temp\\software.zip' c:\\temp"
               ]
             },
@@ -66,7 +66,7 @@
               "type": "PowerShell",
               "runElevated": true,
               "name": "RunPoShInstall",
-              "scriptUri": "<ScriptSource>"
+              "scriptUri": "https://sanhorvastg1113.blob.core.windows.net/sanhorvacnr1113/Install-Applications.ps1"
             }
           ],
           "distribute": [
