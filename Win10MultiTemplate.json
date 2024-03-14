@@ -78,7 +78,7 @@
                 "environment": "Lab",
                 "Owner": "IT"
               },
-              "targetRegions": [
+              "replicationRegions": [
                 "West Europe"
               ]
             }
