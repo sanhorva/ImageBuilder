@@ -10,7 +10,7 @@ variables:
 - name: ResourceGroup
   value: 'rg-sandor'
 - name: ImageTemplateName
-  value: 'dev1113'
+  value: 'dev11135'
 
 steps:
   - task: AzureCLI@2
@@ -22,7 +22,7 @@ steps:
       inlineScript: |
         az storage blob upload \
              --account-name sanhorvastg1113\
-             --container-name sanhorvacnr1113 \
+             --container-name sanhorvacnr11135 \
              --name Install-Applications.ps1 \
              --file Install-Applications.ps1 \
              --overwrite
