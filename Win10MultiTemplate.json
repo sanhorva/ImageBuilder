@@ -21,7 +21,7 @@
         "location": "[parameters('svclocation')]",
         "dependsOn": [],
         "tags": {
-          "imagebuilderTemplate": "neWin10multi",
+          "imagebuilderTemplate": "newWin10multi",
           "userIdentity": "enabled"
         },
         "identity": {
