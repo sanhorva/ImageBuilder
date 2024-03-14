@@ -77,9 +77,7 @@
               "artifactTags": {
                 "environment": "Lab",
                 "Owner": "IT"
-              },
-              "replicationRegions": [
-                "CentralUS"
+              }
               ]
             }
           ]
